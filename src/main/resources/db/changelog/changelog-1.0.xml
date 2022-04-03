@@ -1,0 +1,73 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2022-03-28 loo tabel  workshops ja lisa kolm tulpa" author="Toomas Haidak">
+        <createTable tableName="workshops">
+            <column name="workshop_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="workshop_name" type="text"/>
+            <column name="workshop_address" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2022-03-28 loo tabel vehicle_types ja lisa kaks tulpa" author="Toomas Haidak">
+        <createTable tableName="vehicle_types">
+            <column name="vehicle_type_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="vehicle_type_name" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2022-03-28 loo tabel  workshops_vehicles_join ja lisa kaks tulpa" author="Toomas Haidak">
+        <createTable tableName="workshops_vehicles_join">
+            <column name="workshop_id" type="int">
+                <constraints foreignKeyName="fk_workshop" references="workshops(workshop_id)"/>
+            </column>
+            <column name="vehicle_type_id" type="int">
+                <constraints foreignKeyName="fk_vehicle_type" references="vehicle_types(vehicle_type_id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2022-02-09 loo tabel sectors ja lisa kolm tulpa" author="Toomas Haidak">
+        <createTable tableName="sectors">
+            <column name="sector_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="sector_name" type="text"/>
+            <column name="indent_value" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2022-02-09 loo tabel Employees ja lisa kaks tulpa" author="Toomas Haidak">
+        <createTable tableName="employees">
+            <column name="employee_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="employee_name" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2022-02-09 loo join tabel employees/sectors ja lisa kaks tulpa" author="Toomas Haidak">
+        <createTable tableName="employees_sectors_join">
+            <column name="employee_id" type="int">
+                <constraints foreignKeyName="fk_employee" references="employees(employee_id)"/>
+            </column>
+            <column name="sector_id" type="int">
+                <constraints foreignKeyName="fk_sectors" references="sectors(sector_id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2021-02-09 loon tulba agree to terms tabelisse employee" author="Toomas Haidak">
+        <addColumn tableName="employees">
+            <column name="agree_to_terms" type="bool"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

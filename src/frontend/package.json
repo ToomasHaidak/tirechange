@@ -1,0 +1,30 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@mathieustan/vue-datepicker": "^0.2.11",
+    "@syncfusion/ej2-vue-calendars": "^19.4.56",
+    "@syncfusion/ej2-vue-dropdowns": "^19.4.56",
+    "axios": "^0.26.1",
+    "vue": "^2.6.14",
+    "vue-axios": "^3.4.1",
+    "vue-class-component": "^7.2.6",
+    "vue-router": "^3.5.1",
+    "vuejs-smart-table": "^0.0.8"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
